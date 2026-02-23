@@ -12,8 +12,6 @@ const ManageUsers = () => {
     if(error) return <div>Failed to laod users</div>
 
     const users = data.data || [];
-    const allUser = users.data;
-    
     const handleDeleteUser = async (id) => {
         try {
             const response =  await deleteUser(id).unwrap();
@@ -85,8 +83,8 @@ const ManageUsers = () => {
                 </thead>
 
                 <tbody>
-                  {allUser &&
-                    allUser.map((user, index) => (
+                  {users &&
+                    users.map((user, index) => (
                       <tr key={user._id}>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
                           {index + 1}
